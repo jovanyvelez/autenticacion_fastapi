@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Bienvenido, {{ user }}</h1>
+    <p>Esta página está protegida: solo se ve si tu JWT es válido.</p>
+    <p><a href="/logout">Cerrar sesión</a></p>
+{% endblock %}

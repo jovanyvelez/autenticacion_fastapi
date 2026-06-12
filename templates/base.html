@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Auth con JWT{% endblock %}</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 480px; margin: 60px auto; padding: 0 16px; }
+        h1 { font-size: 1.4rem; }
+        form { display: flex; flex-direction: column; gap: 8px; }
+        input { padding: 8px; font-size: 1rem; }
+        button { padding: 8px; font-size: 1rem; cursor: pointer; }
+        .err { color: #b00020; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 12px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/register">Registro</a>
+        <a href="/login">Login</a>
+        {% if user %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        {% endif %}
+    </nav>
+
+    {% if error %}
+        <p class="err">{{ error }}</p>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</body>
+</html>
